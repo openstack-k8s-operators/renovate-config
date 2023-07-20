@@ -1,0 +1,7 @@
+# renovate-config
+
+Default Renovate config files for openstack-k8s-operators
+
+The main default.json file is intended to be used for 'main' development branches.
+
+If we need alternate version of this file for branches in the future please see https://docs.renovatebot.com/config-presets/#github on how we might name things to accomidate shareable config presets via naming conventions on branches.
