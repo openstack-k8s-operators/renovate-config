@@ -38,8 +38,14 @@
       "enabled": true
     },
     {
+      "groupName": "mergo",
+      "matchPackagePatterns": ["^github.com/imdario/mergo"],
+      "allowedVersions": "< 1.0.0",
+      "enabled": true
+    },
+    {
       "groupName": "misc",
-      "matchPackagePatterns": ["^github.com/operator-framework/api", "^github.com/ghodss", "^github.com/go-logr/logr", "^github.com/imdario/mergo", "^go.uber.org/zap"],
+      "matchPackagePatterns": ["^github.com/operator-framework/api", "^github.com/ghodss", "^github.com/go-logr/logr", "^go.uber.org/zap"],
       "enabled": true
     }
   ]
