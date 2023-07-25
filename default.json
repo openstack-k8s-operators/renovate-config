@@ -27,7 +27,11 @@
     {
       "groupName": "k8s.io",
       "matchPackagePatterns": ["^k8s.io"],
+      // We exclude kube-openapi as it has no tags
       "excludePackagePatterns": ["^k8s.io/kube-openapi"],
+      // We need a matching controller-runtime and we
+      // need to update our webhook definitions to be compatible
+      // with 0.27 first
       "allowedVersions": "< 0.27.0",
       "enabled": true
     },
@@ -40,6 +44,7 @@
     {
       "groupName": "mergo",
       "matchPackagePatterns": ["^github.com/imdario/mergo"],
+      // mergo 1.0.0 requires to bump k8s to 0.27 first
       "allowedVersions": "< 1.0.0",
       "enabled": true
     },
