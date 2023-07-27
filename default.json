@@ -37,6 +37,14 @@
       "allowedVersions": "< 0.15.0",
       "enabled": true
     },
+    // We need to manually select a version to bump to as there
+    // are no tags in the repo and we are not compatible with
+    // the master branch yet
+    {
+      "groupName": "openshift",
+      "matchPackageNames": ["github.com/openshift/api"],
+      "enabled": false
+    },
     {
       "groupName": "mergo",
       "matchPackagePatterns": ["^github.com/imdario/mergo"],
