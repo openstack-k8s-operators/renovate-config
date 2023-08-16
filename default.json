@@ -37,6 +37,14 @@
       "allowedVersions": "< 0.27.0",
       "enabled": true
     },
+    // We disable kube-openapi updates as it has no tags to express a limit
+    // due to other k8s.io packages. So we rely on bumping this transitively
+    // when other k8s.io package versions are bumped
+    {
+      "groupName": "kube-openapi",
+      "matchPackageNames": ["k8s.io/kube-openapi"],
+      "enabled": false
+    },
     {
       "groupName": "sigs.k8s.io/controller-runtime",
       "matchPackagePatterns": ["^sigs.k8s.io/controller-runtime"],
