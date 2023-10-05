@@ -1,0 +1,69 @@
+{
+  "timezone": "America/New_York",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "dependencyDashboard": true,
+  "logFileLevel": "trace",
+  "enabledManagers": ["gomod"],
+  "postUpdateOptions": ["gomodTidy"],
+  "constraints": {
+    "go": "1.19"
+  },
+  "schedule":[
+    "every weekend"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["go"],
+      "enabled": false
+    },
+    {
+      "groupName": "openstack-k8s-operators",
+      "matchPackagePatterns": ["^github.com/openstack-k8s-operators"],
+      // dev-preview2 is versioned as v0.2.x
+      "allowedVersions": "< 0.3.0",
+      // we need to override the pseudoversion regex from default.json
+      "versioning": "semver",
+      "enabled": true
+    },
+    {
+      "groupName": "k8s.io",
+      "matchPackagePatterns": ["^k8s.io"],
+      // We exclude kube-openapi as it has no tags
+      "excludePackagePatterns": ["^k8s.io/kube-openapi"],
+      // We need a matching controller-runtime and we
+      // need to update our webhook definitions to be compatible
+      // with 0.27 first
+      "allowedVersions": "< 0.27.0",
+      "enabled": true
+    },
+    {
+      "groupName": "sigs.k8s.io/controller-runtime",
+      "matchPackagePatterns": ["^sigs.k8s.io/controller-runtime"],
+      "allowedVersions": "< 0.15.0",
+      "enabled": true
+    },
+    // We need to manually select a version to bump to as there
+    // are no tags in the repo and we are not compatible with
+    // the master branch yet
+    {
+      "groupName": "openshift",
+      "matchPackageNames": ["github.com/openshift/api"],
+      "enabled": false
+    },
+    {
+      "groupName": "mergo",
+      "matchPackagePatterns": ["^github.com/imdario/mergo"],
+      // mergo 1.0.0 requires to bump k8s to 0.27 first
+      "allowedVersions": "< 1.0.0",
+      "enabled": true
+    },
+    {
+      "groupName": "misc",
+      "matchPackagePatterns": ["^github.com/operator-framework/api", "^github.com/ghodss", "^github.com/go-logr/logr", "^go.uber.org/zap"],
+      "enabled": true
+    }
+  ]
+}
