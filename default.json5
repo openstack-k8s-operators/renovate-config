@@ -70,6 +70,27 @@
       "groupName": "misc",
       "matchPackagePatterns": ["^github.com/operator-framework/api", "^github.com/ghodss", "^github.com/go-logr/logr", "^go.uber.org/zap"],
       "enabled": true
+    },
+    {
+      "groupName": "network-attachment-definition-client",
+      "matchPackagePatterns": ["^github.com/k8snetworkplumbingwg/network-attachment-definition-client"],
+      // v1.5.0 needs golang 1.21
+      "allowedVersions": "< 1.5.0",
+      "enabled": true
+    },
+    {
+      "groupName": "ginkgo",
+      "matchPackagePatterns": ["^github.com/onsi/ginkgo/v2"],
+      // v2.15.0 needs golang 1.20
+      "allowedVersions": "< 2.15.0",
+      "enabled": true
+    },
+    {
+      "groupName": "gomega",
+      "matchPackagePatterns": ["^github.com/onsi/gomega"],
+      // v1.31.0 needs golang 1.20
+      "allowedVersions": "< 1.31.0",
+      "enabled": true
     }
   ]
 }
