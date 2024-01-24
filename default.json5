@@ -45,6 +45,14 @@
       "matchPackageNames": ["k8s.io/kube-openapi"],
       "enabled": false
     },
+    // We disable golang.org/x/exp updates as it has no tags causing a bump
+    // for each commit which is too frequent. So instead we will rely on
+    // bumping this transitively when other packages require them.
+    {
+      "groupName": "golang.org/x/exp",
+      "matchPackageNames": ["golang.org/x/exp"],
+      "enabled": false
+    },
     {
       "groupName": "sigs.k8s.io/controller-runtime",
       "matchPackagePatterns": ["^sigs.k8s.io/controller-runtime"],
