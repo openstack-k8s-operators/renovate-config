@@ -95,6 +95,13 @@
       "matchPackagePatterns": ["^github.com/onsi/gomega"],
       "allowedVersions": "< 2.0.0",
       "enabled": true
+    },
+    {
+      "groupName": "cert-manager",
+      "matchPackagePatterns": ["^github.com/cert-manager/cert-manager"],
+      // 1.14 needs golang 1.21
+      "allowedVersions": "< 1.14.0",
+      "enabled": true
     }
   ]
 }
