@@ -1,0 +1,59 @@
+{
+  "description": "Describe the dependency bumping rules for the 18.0.0-proposed branch. Only operator version upgrade is enabled.",
+  "timezone": "America/New_York",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "dependencyDashboard": true,
+  "logFileLevel": "trace",
+  "enabledManagers": ["gomod"],
+  "postUpdateOptions": ["gomodTidy"],
+  "constraints": {
+    "go": "1.20"
+  },
+  "schedule":[
+    "every weekend"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["go"],
+      "enabled": false
+    },
+    {
+      // We want to disable any update except the operator updates handled by the next group
+      "groupName": "all",
+      "matchPackagePatterns": [".*"],
+      "enabled": false
+
+    },
+    {
+      "groupName": "openstack-k8s-operators",
+      "matchPackagePatterns": ["^github.com/openstack-k8s-operators"],
+      // force pseudo versioning
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>\\d{14})-(?<revision>[a-f0-9]{12})$",
+      "enabled": true,
+      // when 18.0.0-proposed was cut we started tagging main with v0.4.0 so this rule will
+      // ensure 18.0.0-proposed branch will not pick up main changes after the branching
+      "allowedVersions": "< 0.4.0"
+    },
+    {
+      "groupName": "openstack-k8s-operators",
+      "matchPackagePatterns": ["^github.com/openstack-k8s-operators/designate-operator"],
+      // force pseudo versioning
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>\\d{14})-(?<revision>[a-f0-9]{12})$",
+      "enabled": true,
+      // designate tagget v0.1.0 on main after the 18.0.0-proposed branch was cut
+      "allowedVersions": "< 0.1.0"
+    },
+    {
+      "groupName": "openstack-k8s-operators",
+      "matchPackagePatterns": ["^github.com/openstack-k8s-operators/test-operator"],
+      // force pseudo versioning
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>\\d{14})-(?<revision>[a-f0-9]{12})$",
+      "enabled": true,
+      // test-operator tagged v0.1.0 on main after the 18.0.0-proposed branch was cut
+      "allowedVersions": "< 0.1.0"
+    }
+  ]
+}
