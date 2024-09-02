@@ -43,6 +43,14 @@
       "matchPackageNames": ["k8s.io/kube-openapi"],
       "enabled": false
     },
+    // We disable k8s.io/utils updates as it has no tags to express a limit
+    // due to other k8s.io packages. So we rely on bumping this transitively
+    // when other k8s.io package versions are bumped and require newer utils
+    {
+      "groupName": "k8s.io/utils",
+      "matchPackageNames": ["k8s.io/utils"],
+      "enabled": false
+    },
     // We disable golang.org/x/exp updates as it has no tags causing a bump
     // for each commit which is too frequent. So instead we will rely on
     // bumping this transitively when other packages require them.
