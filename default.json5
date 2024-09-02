@@ -104,6 +104,13 @@
       "enabled": true
     },
     {
+      "groupName": "gophercloud",
+      "matchPackagePatterns": ["^github.com/gophercloud/gophercloud"],
+      // 2.0.0 requires golang 1.22
+      "allowedVersions": "< 2.0.0",
+      "enabled": true
+    },
+    {
       "groupName": "operator-framework-api",
       "matchPackagePatterns": ["^github.com/operator-framework/api"],
       // 0.22.0 needs golang 1.21
