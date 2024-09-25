@@ -9,7 +9,7 @@
   "enabledManagers": ["gomod"],
   "postUpdateOptions": ["gomodTidy"],
   "constraints": {
-    "go": "1.20"
+    "go": "1.21"
   },
   "schedule":[
     "every weekend"
@@ -31,8 +31,8 @@
       "matchPackagePatterns": ["^k8s.io"],
       // We exclude kube-openapi as it has no tags
       "excludePackagePatterns": ["^k8s.io/kube-openapi"],
-      // 0.29 needs controller-runtime 0.17 and golang 1.21
-      "allowedVersions": "< 0.29.0",
+      // 0.30 needs controller-runtime 0.18 and golang 1.22
+      "allowedVersions": "< 0.30.0",
       "enabled": true
     },
     // We disable kube-openapi updates as it has no tags to express a limit
@@ -62,8 +62,8 @@
     {
       "groupName": "sigs.k8s.io/controller-runtime",
       "matchPackagePatterns": ["^sigs.k8s.io/controller-runtime"],
-      // 0.17 needs golang 1.21 and ubi9/go-toolset:1.21
-      "allowedVersions": "< 0.17.0",
+      // 0.18 needs golang 1.22 and ubi9/go-toolset:1.22
+      "allowedVersions": "< 0.18.0",
       "enabled": true
     },
     // We need to manually select a version to bump to as there
@@ -88,8 +88,8 @@
     {
       "groupName": "network-attachment-definition-client",
       "matchPackagePatterns": ["^github.com/k8snetworkplumbingwg/network-attachment-definition-client"],
-      // v1.5.0 needs golang 1.21
-      "allowedVersions": "< 1.5.0",
+      // OCP 4.16 use v1.7 https://github.com/openshift/multus-cni/blob/release-4.16/go.mod
+      "allowedVersions": "<= 1.8.0",
       "enabled": true
     },
     {
@@ -109,8 +109,8 @@
     {
       "groupName": "cert-manager",
       "matchPackagePatterns": ["^github.com/cert-manager/cert-manager"],
-      // 1.14 needs golang 1.21
-      "allowedVersions": "< 1.14.0",
+      // 1.15 needs golang 1.22
+      "allowedVersions": "< 1.15.0",
       "enabled": true
     },
     {
@@ -123,8 +123,8 @@
     {
       "groupName": "operator-framework-api",
       "matchPackagePatterns": ["^github.com/operator-framework/api"],
-      // 0.22.0 needs golang 1.21
-      "allowedVersions": "< 0.22.0",
+      // 0.24.0 needs golang 1.22
+      "allowedVersions": "< 0.24.0",
       "enabled": true
     }
   ]
