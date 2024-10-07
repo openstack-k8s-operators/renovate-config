@@ -126,7 +126,7 @@
       // 0.24.0 needs golang 1.22
       "allowedVersions": "< 0.24.0",
       "enabled": true
-    }
+    },
     {
       "groupName": "baremetal-operator",
       "matchPackagePatterns": ["^github.com/metal3-io/baremetal-operator/apis"],
