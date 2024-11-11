@@ -1,0 +1,36 @@
+{
+  "description": "Describe the dependency bumping rules for stable branches. Only operator version upgrade is enabled.",
+  "timezone": "America/New_York",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "dependencyDashboard": true,
+  "logFileLevel": "trace",
+  "enabledManagers": ["gomod"],
+  "postUpdateOptions": ["gomodTidy"],
+  "constraints": {
+    "go": "1.21"
+  },
+  "schedule":[
+    "every weekend"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["go"],
+      "enabled": false
+    },
+    {
+      // We want to disable any update except the operator updates handled by the next group
+      "groupName": "all",
+      "matchPackagePatterns": [".*"],
+      "enabled": false
+
+    },
+    {
+      "groupName": "openstack-k8s-operators",
+      "matchPackagePatterns": ["^github.com/openstack-k8s-operators"],
+      "enabled": true,
+    }
+  ]
+}
