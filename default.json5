@@ -133,6 +133,13 @@
       // 0.8.0 needs golang 1.22
       "allowedVersions": "< 0.8.0",
       "enabled": true
+    },
+    {
+      "groupName": "metallb",
+      "matchPackagePatterns": ["^github.com/metallb/frr-k8s"],
+      // 0.0.12 needs golang 1.22
+      "allowedVersions": "< 0.0.12",
+      "enabled": true
     }
   ]
 }
