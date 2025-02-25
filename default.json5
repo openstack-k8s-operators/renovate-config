@@ -140,6 +140,13 @@
       // 0.0.12 needs golang 1.22
       "allowedVersions": "< 0.0.12",
       "enabled": true
+    },
+    {
+      "groupName": "crypto",
+      "matchPackagePatterns": ["^golang.org/x/crypto"],
+      // 0.34.0 needs golang 1.23
+      "allowedVersions": "< 0.34.0",
+      "enabled": true
     }
   ]
 }
