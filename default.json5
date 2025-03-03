@@ -147,6 +147,13 @@
       // 0.34.0 needs golang 1.23
       "allowedVersions": "< 0.34.0",
       "enabled": true
+    },
+    {
+      "groupName": "rabbitmq-cluster-operator",
+      "matchPackagePatterns": ["^github.com/rabbitmq/cluster-operator/v2"],
+      // 2.10.0 needs golang 1.22
+      "allowedVersions": "< 2.10.0",
+      "enabled": true
     }
   ]
 }
