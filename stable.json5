@@ -30,7 +30,7 @@
     {
       "groupName": "openstack-k8s-operators",
       "matchPackagePatterns": ["^github.com/openstack-k8s-operators"],
-      "enabled": true,
+      "enabled": false,
     }
   ]
 }
