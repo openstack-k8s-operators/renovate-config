@@ -171,8 +171,8 @@
     {
       "groupName": "rabbitmq-cluster-operator",
       "matchPackagePatterns": ["^github.com/rabbitmq/cluster-operator/v2"],
-      // Allow 2.16 bumped in https://github.com/openstack-k8s-operators/infra-operator/pull/441
-      "allowedVersions": "< 2.17.0",
+      // Allow 2.16.0 - https://github.com/openstack-k8s-operators/infra-operator/pull/465 
+      "allowedVersions": "< 2.16.1",
       "enabled": true
     }
   ]
