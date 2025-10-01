@@ -35,6 +35,21 @@
       "allowedVersions": "< 0.32.0",
       "enabled": true
     },
+    {
+      "matchPackageNames": [
+        "k8s.io/api",
+        "k8s.io/apiserver",
+        "k8s.io/apimachinery",
+        "k8s.io/apiextensions-apiserver",
+        "k8s.io/client-go",
+        "k8s.io/cli-runtime",
+        "k8s.io/code-generator",
+        "k8s.io/component-base"
+      ],
+      "matchDepTypes": ["replace"],
+      "groupName": "k8s.io 0.31.x replaces",
+      "allowedVersions": "< 0.32.0"
+    },
     // We disable kube-openapi updates as it has no tags to express a limit
     // due to other k8s.io packages. So we rely on bumping this transitively
     // when other k8s.io package versions are bumped
