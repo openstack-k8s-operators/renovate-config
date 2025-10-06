@@ -135,8 +135,8 @@
     {
       "groupName": "cert-manager",
       "matchPackagePatterns": ["^github.com/cert-manager/cert-manager"],
-      // Allow 1.17 for OCP 4.18 https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/security_and_compliance/cert-manager-operator-for-red-hat-openshift#cert-manager-operator-release-notes-1-17-0_cert-manager-operator-release-notes
-      "allowedVersions": "< 1.18.0",
+      // Allow 1.16, cert-manager 1.17 will pull in k8s 0.32.x
+      "allowedVersions": "< 1.17.0",
       "enabled": true
     },
     {
