@@ -50,14 +50,14 @@
       "groupName": "k8s.io 0.31.x replaces",
       "allowedVersions": "< 0.32.0"
     },
-    // cmctl 2.2.2 has k8s api 0.33 dependencies
+    // cmctl 2.2.0 has k8s api 0.33 dependencies
     {
       "matchPackageNames": [
         "github.com/cert-manager/cmctl/v2",
       ],
       "matchDepTypes": ["replace"],
       "groupName": "cmctl 2.1.2 replaces",
-      "allowedVersions": "< 2.2.2"
+      "allowedVersions": "< 2.2.0"
     },
     // We disable kube-openapi updates as it has no tags to express a limit
     // due to other k8s.io packages. So we rely on bumping this transitively
