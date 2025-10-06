@@ -157,7 +157,7 @@
       "groupName": "metallb",
       "matchPackagePatterns": ["^github.com/metallb/frr-k8s"],
       // Allow 0.0.15 for OCP 4.18 https://github.com/openshift/metallb/blob/release-4.18/go.mod#L15
-      "allowedVersions": "< 0.0.19",
+      "allowedVersions": "< 0.0.16",
       "enabled": true
     },
     // mschuppert - remove pinning of crypto after bump to golang 1.24, but keeping it as reference for future need
