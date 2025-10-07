@@ -57,7 +57,10 @@
       ],
       "matchDepTypes": ["replace"],
       "groupName": "cmctl 2.1.2 replaces",
-      "allowedVersions": "2.1.2-0.20241127223932-88edb96860cf"
+      "allowedVersions": "2.1.2-0.20241127223932-88edb96860cf",
+      "digest": {
+        "enabled": false
+      }
     },
     // We disable kube-openapi updates as it has no tags to express a limit
     // due to other k8s.io packages. So we rely on bumping this transitively
