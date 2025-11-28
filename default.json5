@@ -6,7 +6,7 @@
   ],
   "dependencyDashboard": true,
   "logFileLevel": "trace",
-  "enabledManagers": ["gomod"],
+  "enabledManagers": ["gomod", "github-actions"],
   "postUpdateOptions": ["gomodTidy"],
   "constraints": {
     "go": "1.24"
