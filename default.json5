@@ -172,14 +172,13 @@
       "allowedVersions": "< 0.0.16",
       "enabled": true
     },
-    // mschuppert - remove pinning of crypto after bump to golang 1.24, but keeping it as reference for future need
-    //{
-    //  "groupName": "crypto",
-    //  "matchPackagePatterns": ["^golang.org/x/crypto"],
-    //  // 0.34.0 needs golang 1.23
-    //  "allowedVersions": "< 0.34.0",
-    //  "enabled": true
-    //},
+    {
+      "groupName": "crypto",
+      "matchPackagePatterns": ["^golang.org/x/crypto"],
+      // 0.49.0 needs golang 1.25
+      "allowedVersions": "< 0.49.0",
+      "enabled": true
+    },
     {
       "groupName": "rabbitmq-cluster-operator",
       "matchPackagePatterns": ["^github.com/rabbitmq/cluster-operator/v2"],
