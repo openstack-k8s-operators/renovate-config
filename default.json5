@@ -119,14 +119,13 @@
       "allowedVersions": "<= 1.8.0",
       "enabled": true
     },
-    // mschuppert - remove pinning of ginkgo after bump to golang 1.24, but keeping it as reference for future need
-    //{
-    //  "groupName": "ginkgo",
-    //  "matchPackagePatterns": ["^github.com/onsi/ginkgo/v2"],
-    //  // 2.20.2 requires golang 1.22
-    //  "allowedVersions": "< 2.20.2",
-    //  "enabled": true
-    //},
+    {
+      "groupName": "ginkgo",
+      "matchPackagePatterns": ["^github.com/onsi/ginkgo/v2"],
+      // ginkgo/v2 2.28.3+ requires Go 1.25
+      "allowedVersions": "< 2.28.3",
+      "enabled": true
+    },
     // mschuppert - remove pinning of gomega after bump to golang 1.24, but keeping it as reference for future need
     //{
     //  "groupName": "gomega",
