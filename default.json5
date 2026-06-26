@@ -38,6 +38,16 @@
       "groupName": "GitHub Actions Dependencies"
     },
     {
+      // Disable postUpgradeTasks for github-actions — repos define tasks like
+      // "make gowork" / "make tidy" that require Go, which Renovate only
+      // provisions for the gomod manager
+      "matchManagers": ["github-actions"],
+      "postUpgradeTasks": {
+        "commands": [],
+        "executionMode": "update"
+      }
+    },
+    {
       "groupName": "openstack-k8s-operators",
       "matchPackagePatterns": ["^github.com/openstack-k8s-operators"],
       // force pseudo versioning
