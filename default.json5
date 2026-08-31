@@ -6,7 +6,6 @@
     "helpers:pinGitHubActionDigests"
   ],
   "dependencyDashboard": true,
-  "logFileLevel": "trace",
   "enabledManagers": ["gomod", "github-actions"],
   "postUpdateOptions": ["gomodTidy"],
   "constraints": {
