@@ -6,6 +6,7 @@
     "helpers:pinGitHubActionDigests"
   ],
   "dependencyDashboard": true,
+  "osvVulnerabilityAlerts": true,
   "enabledManagers": ["gomod", "github-actions"],
   "postUpdateOptions": ["gomodTidy"],
   "constraints": {

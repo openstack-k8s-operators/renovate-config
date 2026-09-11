@@ -6,6 +6,7 @@
     "helpers:pinGitHubActionDigests"
   ],
   "dependencyDashboard": true,
+  "osvVulnerabilityAlerts": true,
   "logFileLevel": "trace",
   "enabledManagers": ["gomod", "github-actions"],
   "postUpdateOptions": ["gomodTidy"],
