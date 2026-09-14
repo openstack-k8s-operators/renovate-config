@@ -102,6 +102,19 @@
       "matchPackageNames": ["k8s.io/kube-openapi"],
       "enabled": false
     },
+    // gnostic-models replace pins must stay in lockstep with whatever
+    // kube-openapi requires: kube-openapi versions before the go.yaml.in/yaml
+    // migration expect gopkg.in/yaml.v3 typed gnostic-models (<= v0.6.9), while
+    // versions after it expect go.yaml.in/yaml/v3 typed gnostic-models
+    // (>= v0.7.0). Bumping gnostic-models independently of kube-openapi causes
+    // a yaml.Node type mismatch at build time. Allow 0.6.x patch bumps but
+    // block the 0.7.x jump until kube-openapi is bumped alongside it.
+    {
+      "groupName": "gnostic-models",
+      "matchPackageNames": ["github.com/google/gnostic-models"],
+      "matchDepTypes": ["replace"],
+      "allowedVersions": "< 0.7.0"
+    },
     // We disable k8s.io/utils updates as it has no tags to express a limit
     // due to other k8s.io packages. So we rely on bumping this transitively
     // when other k8s.io package versions are bumped and require newer utils
