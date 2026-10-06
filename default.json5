@@ -177,6 +177,31 @@
       "allowedVersions": "<= 1.8.0",
       "enabled": true
     },
+    {
+      // All go.opentelemetry.io submodules are bumped in lockstep in go.mod
+      // anyway, so grouping them carries no extra risk and avoids a
+      // separate PR per submodule (otel, otel/sdk, otlptrace, otlptracegrpc, ...)
+      "groupName": "go.opentelemetry.io",
+      "matchPackagePatterns": ["^go.opentelemetry.io/"]
+    },
+    {
+      // Group same-vendor Go standard extension modules together to cut
+      // down on separate single-package PRs
+      "groupName": "golang.org/x",
+      "matchPackagePatterns": ["^golang.org/x/"],
+      // x/exp is excluded/disabled separately above
+      "excludePackagePatterns": ["^golang.org/x/exp"]
+    },
+    {
+      "groupName": "google.golang.org",
+      "matchPackagePatterns": ["^google.golang.org/"]
+    },
+    {
+      "groupName": "github.com/google",
+      "matchPackagePatterns": ["^github.com/google/"],
+      // gnostic-models keeps its own group/constraint tied to kube-openapi above
+      "excludePackagePatterns": ["^github.com/google/gnostic-models"]
+    },
     // mschuppert - remove pinning of ginkgo after bump to golang 1.26, but keeping it as reference for future need
     //{
     //  "groupName": "ginkgo",
