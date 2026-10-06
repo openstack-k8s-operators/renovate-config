@@ -7,6 +7,9 @@
   ],
   "dependencyDashboard": true,
   "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "groupName": "osv-vulnerability-alerts"
+  },
   "enabledManagers": ["gomod", "github-actions"],
   "postUpdateOptions": ["gomodTidy"],
   "constraints": {
