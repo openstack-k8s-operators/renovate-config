@@ -7,6 +7,9 @@
   ],
   "dependencyDashboard": true,
   "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "groupName": "osv-vulnerability-alerts"
+  },
   "logFileLevel": "trace",
   "enabledManagers": ["gomod", "github-actions"],
   "postUpdateOptions": ["gomodTidy"],
@@ -21,6 +24,16 @@
     {
       "matchPackageNames": ["go"],
       "enabled": false
+    },
+    {
+      // Don't bump GitHub-hosted runners past ubuntu-24.04. GitHub is
+      // migrating "ubuntu-latest" to Ubuntu 26 between 2026-10-19 and
+      // 2026-11-19, so pinning to ubuntu-22.04 as a workaround for issues
+      // with the new image won't be supported much longer. GitHub supports
+      // the two latest LTS versions, so ubuntu-24.04 is maintained for the
+      // next 2 years.
+      "matchDatasources": ["github-runners"],
+      "allowedVersions": "<= 24.04"
     },
     {
       // Don't pin our own reusable workflows — we control them and @main is intentional
