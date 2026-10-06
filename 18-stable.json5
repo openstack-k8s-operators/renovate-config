@@ -166,6 +166,17 @@
       "allowedVersions": "< 2.0.0",
       "enabled": true
     },
+    // observability-operator v1.3.0 split pkg/apis into its own go module.
+    // telemetry-operator's api package still imports the old monolithic
+    // pkg/apis path, so pulling in v1.3.0 here causes an ambiguous import
+    // at `make manifests generate` (two modules providing the same
+    // package path). Pin to v1.0.0 until telemetry-operator consumes the
+    // split module (see openstack-k8s-operators/telemetry-operator#1017).
+    {
+      "groupName": "observability-operator",
+      "matchPackageNames": ["github.com/rhobs/observability-operator"],
+      "allowedVersions": "<= 1.0.0"
+    },
     {
       "groupName": "misc",
       "matchPackagePatterns": ["^github.com/operator-framework/api", "^github.com/ghodss", "^github.com/go-logr/logr", "^go.uber.org/zap"],
