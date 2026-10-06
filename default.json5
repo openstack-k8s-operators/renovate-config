@@ -169,12 +169,16 @@
     // telemetry-operator's api package still imports the old monolithic
     // pkg/apis path, so pulling in v1.3.0 here causes an ambiguous import
     // at `make manifests generate` (two modules providing the same
-    // package path). Pin to v1.0.0 until telemetry-operator consumes the
-    // split module (see openstack-k8s-operators/telemetry-operator#1017).
+    // package path). An allowedVersions pin is not enough: Renovate's
+    // vulnerability-alert handling forces the fix version through
+    // regardless of allowedVersions, so this must be a hard "enabled:
+    // false" to actually block the update. Re-enable once
+    // telemetry-operator consumes the split module (see
+    // openstack-k8s-operators/telemetry-operator#1017).
     {
       "groupName": "observability-operator",
       "matchPackageNames": ["github.com/rhobs/observability-operator"],
-      "allowedVersions": "<= 1.0.0"
+      "enabled": false
     },
     {
       "groupName": "misc",
